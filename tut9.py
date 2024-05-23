@@ -10,6 +10,9 @@ def hello():
 def tell_name():
     print("My name is Arnab")
 
+def open_dialog():
+    print("Opening the dialog box")
+
 fr1 = Frame(root,borderwidth=4,relief="sunken",bg="olive")
 fr1.pack(side="left",anchor="nw")
 
@@ -19,7 +22,7 @@ btn.pack(side="left",padx=24)
 btn2 = Button(fr1,text="Tell me name now",fg="white",bg="salmon",command=tell_name)
 btn2.pack(side="left",padx=24)
 
-btn3 = Button(fr1,text="Click here",fg="white",bg="salmon")
+btn3 = Button(fr1,text="Open dialog",fg="white",bg="salmon",command=open_dialog)
 btn3.pack(side="left",padx=24)
 
 btn4 = Button(fr1,text="Click here",fg="white",bg="salmon")

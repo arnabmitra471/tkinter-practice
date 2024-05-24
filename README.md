@@ -20,3 +20,12 @@ Because we believe that learning by doing is the best approach
 * Intermediate Python developers
 
 
+```python
+from tkinter import *
+
+root = Tk()
+root.geometry(655x444)
+root.mainloop()
+```
+
+

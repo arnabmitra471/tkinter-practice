@@ -7,11 +7,19 @@ root.title("Travel form with grid layout")
 
 root.geometry("644x444")
 def get_data():
-    with open("traveldata.txt","a") as file:
-        file.write(f"name: {name_value.get()} phone: {phone_value.get()} gender: {gender_value.get()} emergency contact: {enmergency_value.get()} payment mode: {payment_mode_value.get()} food service chosen: {food_service_value.get()}")
-    
-    print("Written to file successfully")
-
+    """
+    This function handles the data submiited from the application
+    and writes the data to a text file
+    """
+    if name_value.get() == "" or phone_value.get() == "" or gender_value.get() == "" or enmergency_value.get() == "" or payment_mode_value.get() == "":
+        submit_btn["state"] = "disabled"
+        print("Please enter the values first before sumitting")
+        
+    else:
+        submit_btn["state"] = "normal"
+        with open("traveldata.txt","a") as file:
+            file.write(f"name: {name_value.get()} \n phone: {phone_value.get()} \n gender: {gender_value.get()} \n emergency contact: {enmergency_value.get()} \n payment mode: {payment_mode_value.get()} \n food service chosen: {food_service_value.get()}")
+        print("Written to file successfully")
 # Creating the Heading label
 title_label = Label(root,text="Welcome to anala tours",font="comicsansms 13 bold",pady=15)
 
@@ -53,7 +61,7 @@ payment_mode_entry = Entry(root,textvariable=payment_mode_value)
 
 # Checkbutton for food service
 
-food_service_check = Checkbutton(root,text="Want to prebook your meals",fg="orangered",variable=food_service_value)
+food_service_check = Checkbutton(root,text="Want to prebook your meals",fg="orangered",variable=food_service_value,borderwidth=5,relief=RAISED)
 
 # Creating a button packing it and assigning it a command
 submit_btn = Button(root,text="Submit to anala tours",bg="salmon",fg="white",command=get_data)
